@@ -1,0 +1,34 @@
+{
+    "name": "sertsoft/laradations",
+    "description": "Validação e geração de campos para Laravel >= 5.6",
+    "keywords": ["CNPJ", "validation", "CPF", "documentos", "api", "validação", "laravel"],
+    "type": "library",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/Matheusouza2/laradations/issues",
+        "source": "https://github.com/Matheusouza2/laradations"
+    },
+    "authors": [
+        {
+            "name": "Matheus Souza",
+            "email": "sertsoftsalg@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SertSoft\\Laradations\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel":{
+            "providers":[
+                "SertSoft\\Laradations\\LaradationsServiceProvider"
+            ],
+            "aliases": {
+                "Validations": "SertSoft\\Laradations\\Laradations"
+            }
+        }
+    }
+}
