@@ -32,12 +32,4 @@ class Cns implements Rule
 
         return $sum;
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é um Cartão Nacional do SUS válido.';
-    }
 }

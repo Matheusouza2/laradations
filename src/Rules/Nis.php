@@ -26,12 +26,4 @@ class Nis implements Rule
 
         return ($nis[10] == (((10 * $d) % 11) % 10));
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é um numero NIS válido.';
-    }
 }

@@ -13,6 +13,16 @@ use SertSoft\Laradations\Rules\Nis;
 use SertSoft\Laradations\Rules\Placa;
 use SertSoft\Laradations\Rules\Renavam;
 use SertSoft\Laradations\Rules\TituloEleitoral;
+//Maks
+use SertSoft\Laradations\Masks\Mcpf;
+use SertSoft\Laradations\Masks\Mcnpj;
+use SertSoft\Laradations\Masks\Mcep;
+use SertSoft\Laradations\Masks\Mcertidao;
+use SertSoft\Laradations\Masks\Mcns;
+use SertSoft\Laradations\Masks\Mnis;
+use SertSoft\Laradations\Masks\Mplaca;
+use SertSoft\Laradations\Masks\Mtelefone;
+use SertSoft\Laradations\Masks\Mdefault;
 /**
  * IMPORTS LARAVEL
  */
@@ -95,5 +105,50 @@ class Laradator extends Validator
         $placa = new Placa();
 
         return $placa->passes($attribute, $value);
+    }
+
+    public static function laraMask($formation, $value)
+    {
+        $return = "";
+        switch($formation){
+            case 'cpf':
+                $cpf = new Mcpf();
+                $return = $cpf->putMask($value);
+                break;
+            case 'cnpj':
+                $cpf = new Mcnpj();
+                $return = $cpf->putMask($value);
+                break;
+            case 'cep':
+                $cpf = new Mcep();
+                $return = $cpf->putMask($value);
+                break;
+            case 'telefone':
+                $cpf = new Mtelefone();
+                $return = $cpf->putMask($value);
+                break;
+            case 'cns':
+                $cpf = new Mcns();
+                $return = $cpf->putMask($value);
+                break;
+            case 'certidao':
+                $cpf = new Mcertidao();
+                $return = $cpf->putMask($value);
+                break;
+            case 'nis':
+                $cpf = new Mnis();
+                $return = $cpf->putMask($value);
+                break;
+            case 'placa':
+                $cpf = new Mplaca();
+                $return = $cpf->putMask($value);
+                break;
+            default:
+                $default = new Mdefault();
+                $return = $default->putMask($formation, $value);
+                break;
+        }
+
+        return $return;
     }
 }

@@ -65,12 +65,4 @@ class TituloEleitoral implements Rule
 
         return true;
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é um Renavam válido.';
-    }
 }

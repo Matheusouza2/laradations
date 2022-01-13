@@ -47,12 +47,4 @@ class Cnh implements Rule
 
         return $vl1 . $dv2 == substr($value, -2);
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é uma CNH válida.';
-    }
 }

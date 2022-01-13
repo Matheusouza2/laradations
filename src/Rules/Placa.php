@@ -17,12 +17,4 @@ class Placa implements Rule
 
         return preg_match($regexPlaca, $value) > 0;
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é uma placa de carro ou moto válida.';
-    }
 }

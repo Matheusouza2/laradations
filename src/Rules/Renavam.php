@@ -36,12 +36,4 @@ class Renavam implements Rule
 
         return $verificador >= 10 ? 0 : $verificador;
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é um Renavam válido.';
-    }
 }

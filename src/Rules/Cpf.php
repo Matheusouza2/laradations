@@ -33,12 +33,4 @@ class Cpf implements Rule
 
         return true;
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é um CPF válido.';
-    }
 }

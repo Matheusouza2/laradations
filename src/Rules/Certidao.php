@@ -50,12 +50,4 @@ class Certidao implements Rule
 
         return $sum;
     }
-
-    /**
-     * @return string
-     */
-    public function message()
-    {
-    	return 'O campo :attribute não é uma Certidão válida.';
-    }
 }
