@@ -39,7 +39,7 @@ class LaradationsServiceProvider extends ServiceProvider
             'cnpj' => 'O campo :attribute não é um CNPJ válido.',
             'cpf' => 'O campo :attribute não é um CPF válido.',
             'renavam' => 'O campo :attribute não é um Renavam válido.',
-            'cpf_cnpj' => 'O campo :attribute não é um CPF ou CNPJ válido.',
+            'cpfCnpj' => 'O campo :attribute não é um CPF ou CNPJ válido.',
             'nis' => 'O campo :attribute não é um NIS válido.',
             'cns' => 'O campo :attribute não é um Cartão do SUS válido.',
             'certidao' => 'O campo :attribute não é uma Certidão válida.',
