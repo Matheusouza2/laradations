@@ -1,6 +1,7 @@
 ## Laradations
 ### Validador, formatador e gerador de documentos para Laraver by [SertSoft](https://sertsoft.com.br)
-===
+
+---
 
 ## Instalação 
 ### Laravel ^5.x 
@@ -15,15 +16,15 @@ Caso você pretenda usar a [SertAPI](https://api.sertsoft.com.br/docs) integrada
 php artisan vendor:publish --tag=config
 ```
 
----
-
 Agora é só utilizar da praticidade do pacote `Laradations` no seu projeto. 
+
+---
 
 ## Ferramentas 
 
 ### Validação de Documentos
 | tipo_documento        |       validação       |
-|           :           |          :=           |
+|   :---:   |    ---:                                                |
 |       cpf             | Válida se o CPF informado é válido         |
 |       cnpj            | Válida se o CNPJ informado é válido        |
 |       cns             | Válida se o CNS informado é válido         |
@@ -57,7 +58,7 @@ public function store(Request $request)
 ### Máscara de Campos
 
 | Márcaras | Retorno |
-|   :       |   :=                                              |
+|   :---:   |    ---:                                           |
 | cpf       | Retorna o CPF informado com toda a sua pontuação  |
 | cnpj      | Retorna o CNPJ informado com toda a sua pontuação |
 | cep       | Retorna o CEP informado com toda a sua pontuação  |
@@ -123,16 +124,16 @@ Para quem utiliza a [SertAPI](https://api.sertsoft.com.br/docs) temos a integra�
 O método consultas aceita apenas um parametro que é um array, esse array é estruturado de uma forma estatica e deve ser sempre seguido o modelo: 
 
 | index | propriedade |
-|   :   |   :=                                              |
-|  0    | O index 0 é utilizado para definir qual a consulta que será realizada.  |
-|  1    | O index 1 indica qual filtro será utilizado na consulta a API           |
-|  2    | O index 2 carrega o valor que será utilizado pelo filtro                |
-|  3    | O index 3 é opcional e só funciona nas consultas da Anvisa              |
+|   :---:   |    ---:                                              |
+|  0        | O index 0 é utilizado para definir qual a consulta que será realizada.  |
+|  1        | O index 1 indica qual filtro será utilizado na consulta a API           |
+|  2        | O index 2 carrega o valor que será utilizado pelo filtro                |
+|  3        | O index 3 é opcional e só funciona nas consultas da Anvisa              |
 
-O index 0 pode conter os valores `anv`, `cep`, `cnpj`, `ebct`, `sus` e `prod` que indicam o tipo de consulta que será realizada pela biblioteca. 
-O index 1 vai conter os valores dos filtros, para `anv` => `nome`, `categoria`, `classe`, `registro`
-para `sus` => `codigo`, `nome` e para `prod` => `gtin`, `nome`, `marca`, *para os demais o index 1 deve permanecer com valor ''*
-O index 2 possui o valor que será filtrado, podendo ser um nome de um medicamento, gtin de uma mercadoria ou um código de rastreio dos correios, vai depender de como você está utilizando os index anteriores. 
+O index 0 pode conter os valores `anv`, `cep`, `cnpj`, `ebct`, `sus` e `prod` que indicam o tipo de consulta que será realizada pela biblioteca. <br />
+O index 1 vai conter os valores dos filtros, para `anv` => `nome`, `categoria`, `classe`, `registro` <br />
+para `sus` => `codigo`, `nome`<br /> e para `prod` => `gtin`, `nome`, `marca`, *para os demais o index 1 deve permanecer com valor '' vazio* <br />
+O index 2 possui o valor que será filtrado, podendo ser um nome de um medicamento, gtin de uma mercadoria ou um código de rastreio dos correios, vai depender de como você está utilizando os index anteriores. <br />
 O index 3 serve para filtrar os resultados da Anvisa em medicamentos apenas Cancelados ou apenas Ativos, para isso os valores são respectivamente `cancelado` e `valido`.
 
 ### Utilização
