@@ -86,7 +86,7 @@ public function show(){
     //Laradator::laraMask('telefone', '988523611');
     $cpf = Laradator::laraMask('cpf', '12345678988');
 
-    echo $cpfFormatado;
+    echo $cpf;
 }
 ```
 O resultad será **123.456.789-88**
@@ -98,7 +98,7 @@ public function show(){
 
     $mascara = Laradator::laraMask('### ###-###', '123456789');
 
-    echo $cpfFormatado;
+    echo $mascara;
 }
 ```
 
