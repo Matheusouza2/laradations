@@ -32,4 +32,14 @@ class Cns implements Rule
 
         return $sum;
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'O CNS digitado é invalido';
+    }
 }

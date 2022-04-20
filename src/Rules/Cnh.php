@@ -47,4 +47,14 @@ class Cnh implements Rule
 
         return $vl1 . $dv2 == substr($value, -2);
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'A CNH informada é inválida';
+    }
 }

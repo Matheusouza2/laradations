@@ -26,4 +26,14 @@ class Nis implements Rule
 
         return ($nis[10] == (((10 * $d) % 11) % 10));
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'O NIS digitado é invalido';
+    }
 }

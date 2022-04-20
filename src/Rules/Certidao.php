@@ -50,4 +50,14 @@ class Certidao implements Rule
 
         return $sum;
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'A Certidão informada é invalida';
+    }
 }

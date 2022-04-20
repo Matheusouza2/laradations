@@ -36,4 +36,14 @@ class Renavam implements Rule
 
         return $verificador >= 10 ? 0 : $verificador;
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'O Renavam digitado é invalido';
+    }
 }

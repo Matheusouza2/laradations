@@ -17,4 +17,14 @@ class Placa implements Rule
 
         return preg_match($regexPlaca, $value) > 0;
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'A Placa digitado é invalida';
+    }
 }

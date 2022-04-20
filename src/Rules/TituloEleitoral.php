@@ -65,4 +65,14 @@ class TituloEleitoral implements Rule
 
         return true;
     }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string
+     */
+    public function message()
+    {
+        return 'O Titulo de eleitor digitado é invalido';
+    }
 }
