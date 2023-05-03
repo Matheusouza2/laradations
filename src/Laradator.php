@@ -1,9 +1,11 @@
 <?php
 
 namespace SertSoft\Laradations;
+
 /**
  * IMPORTS ON MY OWNS
  */
+
 use SertSoft\Laradations\Rules\Cpf;
 use SertSoft\Laradations\Rules\Cnpj;
 use SertSoft\Laradations\Rules\Certidao;
@@ -23,9 +25,13 @@ use SertSoft\Laradations\Masks\Mnis;
 use SertSoft\Laradations\Masks\Mplaca;
 use SertSoft\Laradations\Masks\Mtelefone;
 use SertSoft\Laradations\Masks\Mdefault;
+//Sanitize
+use SertSoft\Laradations\Sanitize\Sanitize;
+
 /**
  * IMPORTS LARAVEL
  */
+
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Validation\Validator;
 
@@ -35,7 +41,7 @@ class Laradator extends Validator
     {
         parent::__construct($translator, $data, $rules, $messages);
     }
-    
+
     protected function validateCpf($attribute, $value): bool
     {
         $cpf = new Cpf();
@@ -110,7 +116,7 @@ class Laradator extends Validator
     public static function laraMask($formation, $value)
     {
         $return = "";
-        switch($formation){
+        switch ($formation) {
             case 'cpf':
                 $cpf = new Mcpf();
                 $return = $cpf->putMask($value);
@@ -150,5 +156,11 @@ class Laradator extends Validator
         }
 
         return $return;
+    }
+
+    public static function Sanitize($value)
+    {
+        $sanitize = new Sanitize();
+        return $sanitize->passes($value);
     }
 }
