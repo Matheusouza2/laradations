@@ -1,10 +1,10 @@
 <?php
 
-namespace SertSoft\Laradations\Rules;
+namespace SertSoft\Laradations\Sanitize;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class Certidao implements Rule
+class Sanitize implements Rule
 {
     /**
      * @param string $attribute

@@ -158,7 +158,7 @@ class Laradator extends Validator
         return $return;
     }
 
-    public static function Sanitize($value)
+    public static function sanitize($value)
     {
         $sanitize = new Sanitize();
         return $sanitize->passes($value);
