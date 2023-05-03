@@ -11,7 +11,7 @@ class Sanitize implements Rule
      * @param string $value
      * @return boolean
      */
-    public function passes($attribute = "", $value)
+    public function passes($attribute , $value)
     {
         $c =  preg_replace('/[^\d]/', '', $value);
 
