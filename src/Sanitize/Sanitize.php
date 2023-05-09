@@ -4,19 +4,38 @@ namespace SertSoft\Laradations\Sanitize;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class Sanitize implements Rule
+class Sanitize
 {
     /**
      * @param string $attribute
      * @param string $value
      * @return boolean
      */
-    public function passes($attribute , $value)
+    public function passes($value, $type)
     {
-        $c =  preg_replace('/[^\d]/', '', $value);
-
-        if (!preg_match("/[0-9]{32}/", $c)) {
-            return false;
+        $c = "";
+        switch ($type) {
+            case 'cpf':
+                $c = str_replace([".", "-"], "", $value);
+                break;
+            case 'telefone':
+                $c = str_replace(["(", ")", "-", " "], "", $value);
+                break;
+            case 'cns':
+                $c = str_replace(" ", "", $value);
+                break;
+            case 'cep':
+                $c = str_replace([".", "-", " "], "", $value);
+                break;
+            case 'cnpj':
+                $c = str_replace([".", "-", "/"], "", $value);
+                break;
+            case 'nis':
+                $c = str_replace([".", " "], "", $value);
+                break;
+            default:
+                $c = $value;
+                break;
         }
 
         return $c;
