@@ -11,7 +11,7 @@ class Sanitize
      * @param string $value
      * @return boolean
      */
-    public function passes($value, $type)
+    public function passes($value, $type, $mask = null)
     {
         $c = "";
         switch ($type) {
@@ -33,21 +33,17 @@ class Sanitize
             case 'nis':
                 $c = str_replace([".", " "], "", $value);
                 break;
+            case 'custom':
+                $c = str_replace($mask, "", $value);
+                break;
+            case 'money':
+                $c = str_replace(["R$", " ", ".", ","], ["", "", "", "."], $value);
+                break;
             default:
                 $c = $value;
                 break;
         }
 
         return $c;
-    }
-
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return 'A Certidão informada é invalida';
     }
 }
