@@ -39,6 +39,8 @@ class Sanitize
             case 'money':
                 $c = str_replace(["R$", " ", ".", ","], ["", "", "", "."], $value);
                 break;
+            case 'date':
+                $c = join('-', array_reverse(explode('/', $value)));
             default:
                 $c = $value;
                 break;
