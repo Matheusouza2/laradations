@@ -40,7 +40,8 @@ class Sanitize
                 $c = str_replace(["R$", " ", ".", ","], ["", "", "", "."], $value);
                 break;
             case 'date':
-                $c = join('-', array_reverse(explode('/', $value)));
+                $c = $value == "" ? null : join('-', array_reverse(explode('/', $value)));
+                break;
             default:
                 $c = $value;
                 break;
