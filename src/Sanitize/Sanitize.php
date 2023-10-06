@@ -39,6 +39,12 @@ class Sanitize
             case 'money':
                 $c = str_replace(["R$", " ", ".", ","], ["", "", "", "."], $value);
                 break;
+            case 'double':
+                $c = str_replace([" ", ".", ","], ["", "", "."], $value);
+                break;
+            case 'percent':
+                $c = str_replace(["%", " ", ".", ","], ["", "", "", "."], $value);
+                break;
             case 'date':
                 $c = $value == "" ? null : join('-', array_reverse(explode('/', $value)));
                 break;
