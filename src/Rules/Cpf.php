@@ -7,30 +7,34 @@ use Illuminate\Contracts\Validation\Rule;
 class Cpf implements Rule
 {
     /**
-    * @param string $attribute
-    * @param string $value
-    * @return boolean
-    */
+     * @param string $attribute
+     * @param string $value
+     * @return boolean
+     */
     public function passes($attribute, $value)
     {
-        $c =  preg_replace('/[^\d]/', '', $value);
+        $cpf = preg_replace('/[^0-9]/is', '', $value);
 
-        if (strlen($c) != 11 || preg_match("/^{$c[0]}{11}$/", $c)) {
+        // Verifica se foi informado todos os digitos corretamente
+        if (strlen($cpf) != 11) {
             return false;
         }
 
-        for ($s = 10, $n = 0, $i = 0; $s >= 2; $n += $c[$i++] * $s--);
-
-        if ($c[9] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
+        // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+        if (preg_match('/(\d)\1{10}/', $cpf)) {
             return false;
         }
 
-        for ($s = 11, $n = 0, $i = 0; $s >= 2; $n += $c[$i++] * $s--);
-
-        if ($c[10] != ((($n %= 11) < 2) ? 0 : 11 - $n)) {
-            return false;
+        // Faz o calculo para validar o CPF
+        for ($t = 9; $t < 11; $t++) {
+            for ($d = 0, $c = 0; $c < $t; $c++) {
+                $d += $cpf[$c] * (($t + 1) - $c);
+            }
+            $d = ((10 * $d) % 11) % 10;
+            if ($cpf[$c] != $d) {
+                return false;
+            }
         }
-
         return true;
     }
 
